@@ -1,12 +1,4 @@
-"""
-...ignore this file kyle is doing something similar
-
-*** MY STEPS ***
-- Create a Players class that creates an instance of players and each of their repected hands
-    * It would return a dict that provides a key of player and a value of their hand
-    
-"""
-
+# kyle
 import random
 import deck
 
@@ -79,7 +71,7 @@ class Player:
 
 
 def table():
-    #print("---- Heart's Game ---- ")
+    
     table = dict()
     for i in range(1, 5):
         name = input(f'Player{i} name: ') 

@@ -1,4 +1,4 @@
-import player
+# bk
 """
  *** IMPORTANT RULES ***
 - player with lowest points wins
@@ -8,7 +8,8 @@ import player
 """
 
 
-"""# TEMP variables for table... this isnt official its just a placeholder
+"""
+# TEMP variables for table... this isnt official its just a placeholder
 h1 = [['club', 4], ['heart', 'Q'], ['club', 10], ['heart', 3], ['heart', 'K'], ['club', 7], ['club', 3], ['club', 'K'], ['diamond', 'A'], ['diamond', 9], ['diamond', 8], ['heart', 6], ['diamond', 5]]
 
 h2 = [['spade', 'Q'], ['spade', 10], ['spade', 'A'], ['diamond', 7], ['spade', 3], ['diamond', 2], ['diamond', 4], ['heart', 'A'], ['diamond', 6], ['heart', 9], ['heart', 7], ['spade', 'J'], ['diamond', 'K']]
@@ -19,7 +20,9 @@ h4 = [['spade', 4], ['heart', 2], ['diamond', 3], ['spade', 5], ['diamond', 'J']
 
 #SHOOTING THE MOOO HAND. Special occasions where someone could have all the hearts and the Q of spades.
 sm = [['heart', 2], ['heart', 3], ['heart', 4], ['heart', 5], ['heart', 6], ['heart', 7], ['heart', 8], ['heart', 9], ['heart', 10], ['heart', 'J'], ['heart', 'Q'], ['heart', 'K'], ['heart', 'A'], ['spade', 'Q']]
+"""
 
+"""
 players = {
     'Bk': h1,
     'Melat': h2,
@@ -31,8 +34,7 @@ players = {
 }
 """
 
-
-def shootmoon(sb):
+def shootmoon(plyr, sb):
     """
     A players that has all 'heart' cards and the 'Q' of 'spade' in their hand.
     
@@ -54,7 +56,7 @@ def shootmoon(sb):
      
     """
     for player, score in sb.items():
-        if score != 26:
+        if player != plyr:
             score += 26
             sb[player] = score
         else:
@@ -114,6 +116,6 @@ def score(table):
         score = 0
         
         if cardcount == 14:
-            scoreboard = shootmoon(scoreboard)
+            scoreboard = shootmoon(player, scoreboard)
 
     return scoreboard

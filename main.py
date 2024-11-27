@@ -1,4 +1,4 @@
-import player
+import deal
 import score
 
 
@@ -12,7 +12,7 @@ def main():
     
     
     
-    table = player.table()
+    table = deal.table()
     """
     Creates the table of the game... uses player class to distribute each player an amount of cards then adds them to the table dict...
     EX:
@@ -27,7 +27,6 @@ def main():
     
  
     
-    print(score.score(table))
     """
     An example of utilzing the table to find each players score
     EX:
