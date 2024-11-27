@@ -24,9 +24,9 @@ def main():
         }
         
     """
-    
- 
-    
+    print('\n')
+    print('\t\t--- Scoreboard ---')
+    print(score.score(table))
     """
     An example of utilzing the table to find each players score
     EX:
