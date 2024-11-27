@@ -78,19 +78,13 @@ class Player:
 
 
 
-def run():
-    print("---- Heart's Game ---- ")
-    players_hands = list()
+def table():
+    #print("---- Heart's Game ---- ")
+    table = dict()
     for i in range(1, 5):
         name = input(f'Player{i} name: ') 
         p = Player(name)
         p.deal()
-        players_hands.append(p)
+        table.update(p.hand)        
         
-        
-    return players_hands
-
-
-for i in run():
-    print(i)
-    
+    return table

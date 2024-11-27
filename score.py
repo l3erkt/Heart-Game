@@ -1,3 +1,4 @@
+import player
 """
  *** IMPORTANT RULES ***
 - player with lowest points wins
@@ -7,7 +8,7 @@
 """
 
 
-# TEMP variables for players hand... this isnt official its just a placeholder
+"""# TEMP variables for table... this isnt official its just a placeholder
 h1 = [['club', 4], ['heart', 'Q'], ['club', 10], ['heart', 3], ['heart', 'K'], ['club', 7], ['club', 3], ['club', 'K'], ['diamond', 'A'], ['diamond', 9], ['diamond', 8], ['heart', 6], ['diamond', 5]]
 
 h2 = [['spade', 'Q'], ['spade', 10], ['spade', 'A'], ['diamond', 7], ['spade', 3], ['diamond', 2], ['diamond', 4], ['heart', 'A'], ['diamond', 6], ['heart', 9], ['heart', 7], ['spade', 'J'], ['diamond', 'K']]
@@ -27,8 +28,8 @@ players = {
     
     #'Jerry': sm 
     #This player (Jerry) is an example of someones hand meeting the condition of shootmoon
-    
 }
+"""
 
 
 def shootmoon(sb):
@@ -66,7 +67,7 @@ def shootmoon(sb):
 
 
 
-def score(players):
+def score(table):
     """
     Calculates a players hand.
     
@@ -90,7 +91,7 @@ def score(players):
     scoreboard = {}
     score = 0 
     
-    for player,hand in players.items():
+    for player,hand in table.items():
         
         cardcount = 0
     
@@ -116,6 +117,3 @@ def score(players):
             scoreboard = shootmoon(scoreboard)
 
     return scoreboard
-
-
-print(score(players))
