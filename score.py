@@ -91,11 +91,13 @@ def score(table):
      
     """
     scoreboard = {}
-    score = 0 
+    player_shot = False
     
     for player,hand in table.items():
         
         cardcount = 0
+        score = 0 
+
     
         for card in hand:
             suit = card[0]
@@ -115,7 +117,13 @@ def score(table):
         scoreboard[player] = score
         score = 0
         
+
         if cardcount == 14:
-            scoreboard = shootmoon(player, scoreboard)
+            player_shot = True
+            
+    
+    if player_shot:
+        scoreboard = shootmoon(player, scoreboard)
+
 
     return scoreboard
