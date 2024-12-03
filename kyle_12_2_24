@@ -57,7 +57,7 @@ def table():
     """
     table = dict() 
     for i in range(1, 5):
-        name = input(f'Player{i} name: ') 
+        name = input(f'Player {i} name: ') 
         p = Player(name)
         p.deal()
         table.update(p.hand)        
@@ -75,18 +75,38 @@ def table():
 """
 This function just finds who has the 2 of clubs and sets that user as the first player
 """
-def find_first(table):
-    # Finds the first player to go in a trick
-    fl = False
-    for name, hand in table.items():
-        for card in hand:
-            if str(card[1]) == "2" and card[0] == "club":
-                print(name, "is the first player")
-                found = name
-                fl = True
-    return found
+    
+def current_player(table, round = 1): 
+    """ 
+    What it does: 
+        Identifies the current player of the game 
 
-
+    Args: 
+        round: int - the current round of the game 
+    
+    Returns: 
+        The current player whose turn it is
+    """ 
+        
+    played = [] 
+    round = 1 
+    if round == 1 and len(played) == 0:
+        for name, hand in table.items(): 
+            for card in hand: 
+                if card[0] == 'club' and card[1] == 2: 
+                    played.append(name)
+                    return name 
+    elif round >= 1: 
+        for name in table.keys(): 
+            if name not in played: 
+                played.append(name) 
+                return name 
+            
+    if len(played) == len(table.items()):
+        played.clear() 
+        round += 1
+    
+    return None
 
 class Game:
 
@@ -112,11 +132,12 @@ class Game:
     
     def gameplay(self):
         # Just some stuff to see who is first, don't really need to know how it works
+        first_player = current_player(self.my_game)
+        print(f"The first player is: {first_player}")
         unordered = list(self.my_game.keys())
-        print(f"The order is: ", end = "")
-        first = unordered.index(FIRST) 
-        rem = unordered[first:]
-        unordered = unordered[:first]
+        index_first = unordered.index(first_player)
+        rem = unordered[index_first:]
+        unordered = unordered[:index_first]
         com = rem + unordered
         for i in range(len(com)):
             self.trick[com[i]] = ""
@@ -127,7 +148,7 @@ class Game:
         while finished == False:
             self.trick = {}
             # This will count the turns of 4 players
-            for i in range(3):
+            for i in range(4):
                 print(str(self))
                 print(self.trick, "passed trick")
                 # Asks for what suit/number they want to play
@@ -143,7 +164,7 @@ class Game:
 # Calls everything
     
 MY_GAME = table()
-FIRST = find_first(MY_GAME)
+FIRST = current_player(MY_GAME)
 
 game = Game(MY_GAME)
 game.gameplay()
