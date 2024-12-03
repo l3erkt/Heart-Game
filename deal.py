@@ -42,6 +42,8 @@ class Player:
         #instance attribute
         self.name = name
         self.hand = {self.name: []}
+
+
         
     
     def deal(self, cards_per_player=13):
@@ -77,6 +79,8 @@ def table():
         name = input(f'Player{i} name: ') 
         p = Player(name)
         p.deal()
-        table.update(p.hand)        
+        table.update(p.hand)
+    
+    print('\n')        
         
     return table

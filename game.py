@@ -1,81 +1,11 @@
-import random
-import deck
+import deal
 import copy
+import trick
 
-"""
-These are the edits I make to Bereket's pseudo file. I added a game class that runs something like a game. I set it up so it will take user input for all players
-(You have to control players 1,2,3, and 4). It will run and reset the trick each round but needs a way to keep score and find who wins the trick/the entire game
-"""
 
-""" 
-Using the deck module I am creating a variable called deck that has all 
-52 cards in them and shuffling them before I start my player class.
-"""
-deck = deck.deck
-random.shuffle(deck)
+MY_GAME = deal.table()
 
-class Player:
-    
-    def __init__(self, name):
-        """
-        Here I am initializing both name and hand to create 
-        an instance of a player.
-        """
-        self.name = name
-        self.hand = {self.name: []}
-        self.scoring_cards = []
-        
-    
-    def deal(self, cards_per_player=13):
-        """
-        After creating my attributes I am iterating through the first 13 
-        cards by default in my deck variable and popping them and appending them 
-        two my player hand.
-        """
-        for _ in range(cards_per_player):
-            card = deck.pop()
-            self.hand[self.name].append(card)
 
-        
-    
-    #RETURN
-    """
-    Player <obj>   --->   {name : [[card], [card], [card]]}
-    You can obtain the name of the obj by: <obj>.name
-    or obtain the hand by <obj>.hand
-    """
-
-def table():
-    """
-    Here I am asking the users for each players name.
-    Then I am adding the name to my Players class and creating an instance of
-    that player.
-    Then I deal them cards.
-    And finally update my table variable that was initally an empty dictionary
-    to the players hand
-    
-    """
-    table = dict() 
-    for i in range(1, 5):
-        name = input(f'Player {i} name: ') 
-        p = Player(name)
-        p.deal()
-        table.update(p.hand)        
-        
-    return table
-
-    """
-    table = {
-            bk : [[card], [card], [card]...],
-            kyle : [[card], [card], [card]...],
-            melat : [[card], [card], [card]...],
-            hamza : [[card], [card], [card]...]
-        }
-    """
-"""
-This function just finds who has the 2 of clubs and sets that user as the first player
-"""
-    
 def current_player(table, round = 1): 
     """ 
     What it does: 
@@ -108,6 +38,9 @@ def current_player(table, round = 1):
     
     return None
 
+
+
+
 class Game:
 
     def __init__(self,my_game):
@@ -118,17 +51,21 @@ class Game:
         
         for key in game2:
             game2[key] = ""
+            
+            
     # If we want to debug I created a magic method to print Game objects
     def __str__(self):
         ret = ""
         for name, hand in self.my_game.items():
-            ret += name + "'s cards" ": |"
+            ret += name + "'s cards" ": "
             for card in hand:
-                ret += (str(card[1]) + " of " + card[0] + "| ")
+                ret += f"|{str(card[1])} of {card[0]}| "
 
             ret += ("\n")
             
         return ret
+    
+
     
     def gameplay(self):
         # Just some stuff to see who is first, don't really need to know how it works
@@ -145,26 +82,38 @@ class Game:
         print("\n")
         finished = False
         # Haven't finished this yet but it will run until the game is "finished" (someone gets a certain score)
+        
         while finished == False:
+            
             self.trick = {}
             # This will count the turns of 4 players
+            
+            print(str(self))
+            
             for i in range(4):
-                print(str(self))
-                print(self.trick, "passed trick")
+                print(f"Current trick --> {self.trick}")
                 # Asks for what suit/number they want to play
+                
                 suit_choice = input(f"{com[i]}, What suit would you like to play? ")
                 num_choice = input("What number of that suit would you like to play? ")
+                """Conditions or try except blocks can be HERE to catch any situations where a player plays a heart card accedently for example """
+                
                 if num_choice.isdigit():
                     num_choice = int(num_choice)
+                    
                 paired = [suit_choice,num_choice]
                 self.trick[com[i]] = paired        
                 self.my_game[com[i]].remove(paired)
-                print(self.trick, "Current trick")
+                print('\n')
+                
+        
+            """# TRICK FUNCTION HERE to evaluate who gets the trick stack...
+            trick.trick(self.my_game, self.trick)"""
+            
 
-# Calls everything
-    
-MY_GAME = table()
-FIRST = current_player(MY_GAME)
 
+
+
+# Calls everything  
 game = Game(MY_GAME)
 game.gameplay()

@@ -1,4 +1,3 @@
-# bk
 """
  *** IMPORTANT RULES ***
 - player with lowest points wins
@@ -20,9 +19,9 @@ h4 = [['spade', 4], ['heart', 2], ['diamond', 3], ['spade', 5], ['diamond', 'J']
 
 #SHOOTING THE MOOO HAND. Special occasions where someone could have all the hearts and the Q of spades.
 sm = [['heart', 2], ['heart', 3], ['heart', 4], ['heart', 5], ['heart', 6], ['heart', 7], ['heart', 8], ['heart', 9], ['heart', 10], ['heart', 'J'], ['heart', 'Q'], ['heart', 'K'], ['heart', 'A'], ['spade', 'Q']]
-"""
 
-"""
+
+
 players = {
     'Bk': h1,
     'Melat': h2,
@@ -91,7 +90,7 @@ def score(table):
      
     """
     scoreboard = {}
-    player_shot = False
+    plyr_flag = False
     
     for player,hand in table.items():
         
@@ -119,11 +118,11 @@ def score(table):
         
 
         if cardcount == 14:
-            player_shot = True
+            plyr_flag = player
             
     
-    if player_shot:
-        scoreboard = shootmoon(player, scoreboard)
+    if plyr_flag:
+        scoreboard = shootmoon(plyr_flag, scoreboard)
 
 
     return scoreboard
