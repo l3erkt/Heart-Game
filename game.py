@@ -1,6 +1,7 @@
 import deal
 import copy
 import trick
+import score
 
 
 MY_GAME = deal.table()
@@ -68,6 +69,7 @@ class Game:
 
     
     def gameplay(self):
+        self.scoreboard = {}
         # Just some stuff to see who is first, don't really need to know how it works
         first_player = current_player(self.my_game)
         print(f"The first player is: {first_player}")
@@ -90,10 +92,9 @@ class Game:
             
             print(str(self))
             
+        
             for i in range(4):
-                print(f"Current trick --> {self.trick}")
                 # Asks for what suit/number they want to play
-                
                 suit_choice = input(f"{com[i]}, What suit would you like to play? ")
                 num_choice = input("What number of that suit would you like to play? ")
                 """Conditions or try except blocks can be HERE to catch any situations where a player plays a heart card accedently for example """
@@ -104,11 +105,49 @@ class Game:
                 paired = [suit_choice,num_choice]
                 self.trick[com[i]] = paired        
                 self.my_game[com[i]].remove(paired)
-                print('\n')
+                print(f"\nCurrent trick --> {self.trick}\n")
                 
-        
-            """# TRICK FUNCTION HERE to evaluate who gets the trick stack...
-            trick.trick(self.my_game, self.trick)"""
+                
+                 
+            trick_copy = copy.deepcopy(self.trick)
+            highest = ["", 0]
+            winner_name = ""
+            def convert_cards(card):
+                if  card == "A":
+                    val_converted = 14
+                elif  card == "K":
+                    val_converted = 13
+                elif  card == "Q":
+                    val_converted = 12
+                elif  card == "J":
+                    val_converted = 11
+                else:
+                    val_converted = int(card)
+                
+                return val_converted
+                    
+            for key,value in trick_copy.items():
+                val_converted = convert_cards(value[1])
+                high_convert = convert_cards(highest[1])
+                
+
+                if high_convert < val_converted:
+                    highest = value
+                    winner_name = key
+                        
+            # my implemnentation of the scroing function            
+            print(f"\n{winner_name} wins the trick stack as they placed a(n) {highest[0]} of {highest[1]}")
+            scoreboard = score.score(trick_copy, winner_name)
+            if self.scoreboard == {}:
+                self.scoreboard.update(scoreboard)
+                print(f"Current Score ---> {scoreboard}\n")
+                
+            else:
+                result = {name: self.scoreboard[name] + scoreboard[name] for name in self.scoreboard}
+                self.scoreboard.update(result)
+                print(f"Current Score ---> {result}\n")
+            
+    
             
 
 

@@ -68,7 +68,7 @@ def shootmoon(plyr, sb):
 
 
 
-def score(table):
+def score(table, plyr= None):
     """
     Calculates a players hand.
     
@@ -89,40 +89,65 @@ def score(table):
         N/A
      
     """
-    scoreboard = {}
+    
+    names = list(table)
     plyr_flag = False
+    winner = ""
     
-    for player,hand in table.items():
-        
-        cardcount = 0
-        score = 0 
+    pts = 0 
+    scoreboard = {}
 
+
+    for player,card in table.items():
+        
+        #cardcount = 0
+
+        suit = card[0]
+        value = card[1]
+        
+        scoreboard[player] = 0
+        
+        if player == plyr:
+            winner = player
+           
+           
     
-        for card in hand:
-            suit = card[0]
-            value = card[1]
-            
-    
-            if suit == 'heart':
-                score += 1
-                cardcount += 1               
-            elif suit == 'spade' and value == 'Q':
-                score += 13
-                cardcount += 1
-            else:
-                continue
-            
-        #print(cardcount)
-        scoreboard[player] = score
+        if suit == 'heart':
+                pts += 1
+                #cardcount += 1               
+        elif suit == 'spade' and value == 'Q':
+                pts += 13
+                #cardcount += 1
+        else:
+            continue
+        
+        
+    if winner in names:
+        scoreboard[winner] = pts
+        
+        
+                    
+        """scoreboard[player] = score
         score = 0
         
-
         if cardcount == 14:
             plyr_flag = player
-            
+                  
     
     if plyr_flag:
-        scoreboard = shootmoon(plyr_flag, scoreboard)
+        scoreboard = shootmoon(plyr_flag, scoreboard)"""
 
+    #score = 0
+    
+    
+    return scoreboard       
 
-    return scoreboard
+    
+        
+    
+    
+
+"""stack = {'KYLE': ['heart', 2], 'HAMZA': ['diamond', 9], 'BK': ['heart', 'A'], 'MELAT': ['spade', 7]}
+name = 'BK'
+"""
+

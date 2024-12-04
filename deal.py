@@ -75,6 +75,7 @@ class Player:
 def table():
     
     table = dict()
+    print("--- Heart Game ---")
     for i in range(1, 5):
         name = input(f'Player{i} name: ') 
         p = Player(name)

@@ -7,10 +7,10 @@ deck = [['club', 2],
         ['club', 8], 
         ['club', 9], 
         ['club', 10],
-        ['club', 'J'],
-        ['club', 'Q'],
-        ['club', 'K'],
-        ['club', 'A'],
+        ['club', 'J'], # 11
+        ['club', 'Q'], # 12
+        ['club', 'K'], # 13
+        ['club', 'A'], # 14
         ['diamond', 2],
         ['diamond', 3],
         ['diamond', 4],
@@ -46,7 +46,7 @@ deck = [['club', 2],
         ['spade', 8],
         ['spade', 9],
         ['spade', 10],
-        ['spade', 'J'],
+        ['spade', 'J'], 
         ['spade', 'Q'],
         ['spade', 'K'],
         ['spade', 'A']   #52 cards
