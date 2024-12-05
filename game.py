@@ -2,6 +2,7 @@ import deal
 import copy
 import trick
 import score
+import validation
 
 
 MY_GAME = deal.table()
@@ -95,18 +96,29 @@ class Game:
         
             for i in range(4):
                 # Asks for what suit/number they want to play
-                suit_choice = input(f"{com[i]}, What suit would you like to play? ")
-                num_choice = input("What number of that suit would you like to play? ")
-                """Conditions or try except blocks can be HERE to catch any situations where a player plays a heart card accedently for example """
+                valid_choice = False  # Hamza changes: Added a flag to ensure valid card choices
+                while not valid_choice:  # Hamza changes: Loop to enforce valid card choice
+                    suit_choice = input(f"{com[i]}, What suit would you like to play? ")
+                    num_choice = input("What number of that suit would you like to play? ")
+                    """Conditions or try except blocks can be HERE to catch any situations where a player plays a heart card accedently for example """
                 
-                if num_choice.isdigit():
-                    num_choice = int(num_choice)
+                    if num_choice.isdigit():
+                        num_choice = int(num_choice)
                     
-                paired = [suit_choice,num_choice]
-                self.trick[com[i]] = paired        
-                self.my_game[com[i]].remove(paired)
-                print(f"\nCurrent trick --> {self.trick}\n")
-                
+                    card_choice = [suit_choice, num_choice]
+                    
+                    if card_choice in self.my_game[com[i]]:  # Hamza changes: Ensure the card is in the player's hand
+                        valid_choice = validation.validate_card_choice(
+                            com[i], card_choice, self.trick, self.my_game[com[i]]
+                        )  # Hamza changes: Validate the card using the custom function
+                        if valid_choice:
+                            self.trick[com[i]] = card_choice
+                            self.my_game[com[i]].remove(card_choice)
+                            print(f"\nCurrent trick --> {self.trick}\n")
+                        else:
+                            print(f"Invalid card choice. Try again.")  # Hamza changes: Notify player of invalid choice
+                    else:
+                        print(f"Card {card_choice} is not in your hand. Try again.")  # Hamza changes: Check card ownership
                 
                  
             trick_copy = copy.deepcopy(self.trick)
