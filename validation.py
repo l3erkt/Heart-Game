@@ -13,8 +13,9 @@ def validate_card_choice(player_name, card_choice,
         card_choice (list): The card being played, e.g., ['club', 2].
         trick (dict): The current trick stack.
         player_hand (list): The player's current hand.
-        allow_heart_lead (bool, optional): Whether to allow hearts to lead the first trick (default: False).  # # Keyword Argument: default value specified
-        
+        allow_heart_lead (bool, optional): Whether to allow hearts to lead the 
+                                            first trick (default: False).  
+                                            
     Returns:
         bool: True if the card is valid, False otherwise.
     
