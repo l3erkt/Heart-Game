@@ -73,7 +73,7 @@ This file blah... blah.. blah.. write something here!!
 ## Attribution
 | Method/Function | Primary Author | Technique Demonstrated |
 |   :--------     |    :------:    |      ------------      |
-|    `__str__()`, `gameplay()`,  |    Kyle    | magic methods, f-strings containing expressions|
+|    `__str__()`,  |    Kyle    | magic methods, f-strings containing expressions|
 |     `gameplay()`,  |    Kyle    | |
 | `deal()`, `table()`, `done()`, `winner()`, `score()`, `bar_graph()` | Bereket | Key function, visualizing data with pyplot| 
 |`convert_card()`|   Melat   |sequence unpacking, conditional expressions|
