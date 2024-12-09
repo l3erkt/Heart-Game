@@ -83,7 +83,7 @@ This file creates a bar graph that shows the scores of each player
 | `score()`       |   Bereket  |                            |  
 |`convert_card()` |    Melat   |sequence unpacking, conditional expressions.|
 | `validate_card_choice()` |  Hamza   | keyword arguements, generator exp|
-| `announc.py`    |  Hamza    | comprehensions              |
+| `announc.py()`    |  Hamza    | comprehensions              |
 
 #### Collaborator's GitHub
 - [@l3erkt](https://github.com/l3erkt)
