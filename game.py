@@ -63,7 +63,7 @@ class Game:
             for card in hand:
                 ret += f"|{str(card[1])} of {card[0]}| "
 
-            ret += ("\n")
+            ret += ("\n\n")
             
         return ret
     
@@ -148,8 +148,8 @@ class Game:
                     winner_name = key
                         
             # my implemnentation of the scroing function            
-            print(f"\n{winner_name} wins the trick stack as they placed a(n) {highest[0]} of {highest[1]}")
-            scoreboard = score.score(trick_copy, winner_name)
+            print(f"\n{winner_name} takes the trick stack as they placed a(n) {highest[0]} of {highest[1]}")
+            scoreboard = score.score(trick_copy, self.my_game, winner_name)
             if self.scoreboard == {}:
                 self.scoreboard.update(scoreboard)
                 print(f"Current Score ---> {scoreboard}\n")
@@ -159,10 +159,14 @@ class Game:
                 self.scoreboard.update(result)
                 print(f"Current Score ---> {result}\n")
             
+            
+            
+            if score.done(self.scoreboard) == True:
+                finished = True
+                winner = score.winner(self.scoreboard)
+                print(f"WOW WHAT A GAME, THE WINNER IS {winner[0]} and their score was {winner[1]}.")
     
             
-
-
 
 
 # Calls everything  

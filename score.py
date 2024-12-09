@@ -7,31 +7,59 @@
 """
 
 
-"""
-# TEMP variables for table... this isnt official its just a placeholder
-h1 = [['club', 4], ['heart', 'Q'], ['club', 10], ['heart', 3], ['heart', 'K'], ['club', 7], ['club', 3], ['club', 'K'], ['diamond', 'A'], ['diamond', 9], ['diamond', 8], ['heart', 6], ['diamond', 5]]
 
-h2 = [['spade', 'Q'], ['spade', 10], ['spade', 'A'], ['diamond', 7], ['spade', 3], ['diamond', 2], ['diamond', 4], ['heart', 'A'], ['diamond', 6], ['heart', 9], ['heart', 7], ['spade', 'J'], ['diamond', 'K']]
+def done(scoreboard):
+    """
+    Checking whether if a player has gotten to the certain amount of points to end the game
+         
+    Args:
+        scoreboard : (dict)
+            An instance of the current scoreboard based on the cycle of the game
+            
+    Returns:   
+        done : (bool)
+            Returns True if a player playing has reached 50 pts 
+            
+                  
+                  
+    Side Effect:
+        N/A 
+    """
+    done = False
+    for _, score in scoreboard.items():
+        
+        if score >= 50: # YOU CAN CHANGE THIS VALUE TO END THE GAME QUICKER... MAYBE TRY 10
+            done = True
+            
+    return done
 
-h3 = [['club', 'A'], ['heart', 4], ['spade', 6], ['club', 2], ['club', 9], ['heart', 5], ['diamond', 10], ['heart', 'J'], ['club', 'J'], ['spade', 'K'], ['spade', 9], ['spade', 7], ['heart', 10]]
-
-h4 = [['spade', 4], ['heart', 2], ['diamond', 3], ['spade', 5], ['diamond', 'J'], ['club', 5], ['club', 6], ['diamond', 'Q'], ['spade', 8], ['club', 8], ['heart', 8], ['spade', 2], ['club', 'Q']]
-
-#SHOOTING THE MOOO HAND. Special occasions where someone could have all the hearts and the Q of spades.
-sm = [['heart', 2], ['heart', 3], ['heart', 4], ['heart', 5], ['heart', 6], ['heart', 7], ['heart', 8], ['heart', 9], ['heart', 10], ['heart', 'J'], ['heart', 'Q'], ['heart', 'K'], ['heart', 'A'], ['spade', 'Q']]
 
 
 
-players = {
-    'Bk': h1,
-    'Melat': h2,
-    'Kyle': h3,
-    'Hamza': h4,
+def winner(scoreboard):
+    """
+    Depending on all the current players, finds which one has won the game.
+         
+    Args:
+        scoreboard : (dict)
+            An instance of the current scoreboard based on the cycle of the game.
+            
+    Returns:   
+        name, score : (tuple)
+            Returns the name and score of the winner of the game.
+             
+                  
+    Side Effect:
+        N/A 
+    """
     
-    #'Jerry': sm 
-    #This player (Jerry) is an example of someones hand meeting the condition of shootmoon
-}
-"""
+    sb = [[name, score] for name, score in scoreboard.items()]
+    name, score = sorted(sb, key=lambda plyr: plyr[1])[0]
+    return name, score
+
+
+
+
 
 def shootmoon(plyr, sb):
     """
@@ -41,18 +69,22 @@ def shootmoon(plyr, sb):
         - Player hand MUST have a 'Q' of 'spade'
         - Player hand MUST have ALL 'heart' cards
     
-                  
+               
     Args:
+        plyr : (str)
+            the name of the player that met the requirement of shootthemoon
+    
         sb : (dict)
             This container contains each players name (str) as the key and hand (lists in list) as a value
             
     Returns:   
-        scoreboard : (dict)
+        sb : (dict)
             A key value pair of the players name and the score that have with their hand.
                   
+                  
     Side Effect:
-        N/A
-     
+        sb / scoreboard : (dict)
+            It will update the inital scoreboard with a new one adding the implication of shootthemoon   
     """
     for player, score in sb.items():
         if player != plyr:
@@ -68,7 +100,7 @@ def shootmoon(plyr, sb):
 
 
 
-def score(table, plyr= None):
+def score(trick, table, plyr=None):
     """
     Calculates a players hand.
     
@@ -78,30 +110,34 @@ def score(table, plyr= None):
     
                   
     Args:
-        players : (dict)
-            This container contains each players name (str) as the key and hand (lists in list) as a value
+        trick : (dict)
+            This contains the players card that they placed in their trick stack
+            
+        table : (dict)
+            This container contains the players and their hands to iterate through.
+    
+        plyr : (str)
+            The player that wins the trick of cards from the trick stack.
             
     Returns:   
         scoreboard : (dict)
             A key value pair of the players name and the score that have with their hand.
                   
     Side Effect:
-        N/A
+        self.scoreboard : (dict)
+            Technically this will manipulate the scoreboard attribute within the gameplay class to a new scoreboard.
      
     """
     
-    names = list(table)
+    names = list(trick)
     plyr_flag = False
-    winner = ""
-    
-    pts = 0 
+    winner = "" 
     scoreboard = {}
+    pts = 0
 
 
-    for player,card in table.items():
+    for player,card in trick.items():
         
-        #cardcount = 0
-
         suit = card[0]
         value = card[1]
         
@@ -110,8 +146,7 @@ def score(table, plyr= None):
         if player == plyr:
             winner = player
            
-           
-    
+        
         if suit == 'heart':
                 pts += 1
                 #cardcount += 1               
@@ -121,33 +156,44 @@ def score(table, plyr= None):
         else:
             continue
         
-        
+    
+    
+    
     if winner in names:
         scoreboard[winner] = pts
         
+       
+       
         
-                    
-        """scoreboard[player] = score
-        score = 0
+    for player, hand in table.items():
+        
+        cardcount = 0
+
+        for card in hand:
+            
+            suit = card[0]
+            value = card[1]
+            
+
+            if suit == 'heart':
+                cardcount += 1  
+                             
+            elif suit == 'spade' and value == 'Q':
+                pts += 13
+                cardcount += 1
+            else:
+                continue
+            
         
         if cardcount == 14:
             plyr_flag = player
-                  
-    
+            
+        cardcount = 0
+        
     if plyr_flag:
-        scoreboard = shootmoon(plyr_flag, scoreboard)"""
-
-    #score = 0
-    
-    
+        scoreboard = shootmoon(plyr_flag, scoreboard)
+        
+        
     return scoreboard       
 
-    
-        
-    
-    
-
-"""stack = {'KYLE': ['heart', 2], 'HAMZA': ['diamond', 9], 'BK': ['heart', 'A'], 'MELAT': ['spade', 7]}
-name = 'BK'
-"""
-
+ 

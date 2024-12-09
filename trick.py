@@ -1,6 +1,6 @@
+# *** IGNORE THIS FILE ****
+
 stack = {'kyle': ['club', 7], 'bk': ['club', 4], 'melat': ['club', 3], 'hamza': ['club', 'J']}
-
-
 
 def trick(trk):
 
