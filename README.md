@@ -9,12 +9,12 @@ For INST326 me and my group members Kyle, Melat, and Hamza decided to create the
 - [@melatabera](https://github.com/melatabera)
 - [@himziman](https://github.com/himziman)
 - 
-| Method/Function              | Primary Author | Technique Demonstrated |
-| :---------------- | :------: | ----: |
-|  `__str__`        |   Kyle Won   | magic methods, f-strings containing expressions |
-| gameplay           |   Kyle Won   |  |
-| convert_cards    |  Kyle Won   |  |
-| example |  example   | example |
+| Method/Function | Primary Author | Technique Demonstrated |
+|   :--------     |    :------:    |      ------------      |
+|    `__str__()`, `gameplay()`,  |    Kyle    | magic methods, f-strings containing expressions|
+| `deal()`, `table()`, `done()`, `winner()`, `score()`| Bereket | Key function, visualizing data with pyplot| 
+|`convert_card()`|   Melat   |sequence unpacking, conditional expressions|
+| `validate_card_choice()` |  Hamza   | keyword arguements, generator exp|
 
 
 ![Wave](https://media.giphy.com/media/j65N3HZsImyTeVhmSy/giphy.gif)
