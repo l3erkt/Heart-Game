@@ -2,7 +2,6 @@
 import random
 import deck
 
-
 # shuffling cards
 deck = deck.deck
 random.shuffle(deck)
@@ -81,7 +80,7 @@ def table():
         p = Player(name)
         p.deal()
         table.update(p.hand)
-    
+
     print('\n')        
         
     return table
