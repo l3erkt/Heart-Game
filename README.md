@@ -64,9 +64,9 @@ This file creates a bar graph that shows the scores of each player
 
 ## Annotated bibliography
 
- - [something](google.com)
- - 
- -
+“Copy in Python (Deep Copy and Shallow Copy).” Geeksforgeeks.Org, 26 July 2024, www.geeksforgeeks.org/copy-python-deep-copy-shallow-copy/. I had a problem with copying a specific data structure in my program, I tried directly making a shallow copy but it wouldn't work correctly. This source helped me remember how to make a deep copy in python
+
+“Learn to Play Hearts.” Bicyclecards.Com, bicyclecards.com/how-to-play/hearts/. Accessed 2 Dec. 2024. This source helped me understand the rules for the heart game. It provided guidance on rules, gameplay, scoring, etc.
 
 
 
