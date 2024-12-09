@@ -42,6 +42,11 @@ This file creates a bar graph that shows the scores of each player
 ```
 
 
+```
+announce.py
+The purpose of this file is to announce the sequence of turns in the game. It determines and displays the order in which players will play their cards during a round.
+```
+
 
 
 ## Instructions - (How to run program)
