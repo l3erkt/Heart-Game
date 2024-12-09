@@ -202,5 +202,8 @@ class Game:
 
 
 # Calls everything  
-game = Game(MY_GAME)
-game.gameplay()
+def main():
+    game = Game(MY_GAME)
+    game.gameplay()
+if __name__ == "__main__":    
+    main()
