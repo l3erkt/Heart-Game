@@ -10,35 +10,35 @@ For INST326 me and my group members Kyle, Melat, and Hamza decided to create the
 ## Purpose of each file
 ```
 deck.py 
-This file blah... blah.. blah.. write something here!!
+This contains a dictionary that formats the card deck before it is dealt to the players.
 ```
 
 
 ```
 deal.py
-This file blah... blah.. blah.. write something here!!
+This file contains code that deals cards to players and also takes in plauer names to name each player.
 ```
 
 ```
 score.py
-This file blah... blah.. blah.. write something here!!
+This file contains functions that count a players hand and calculates their score.
 ```
 
 ```
 validation.py
-This file blah... blah.. blah.. write something here!!
+This file validates a player's choice of card, whether it means verifying that the players follows the lead suit or that they don't play a heart suit first
 ```
 
 
 ```
 game.py
-This file blah... blah.. blah.. write something here!!
+The purpose of this file to run the program because it contains most of the game logic and it starts the program.
 ```
 
 
 ```
 visual.py
-This file blah... blah.. blah.. write something here!!
+This file creates a bar graph that shows the scores of each player
 ```
 
 
@@ -46,9 +46,9 @@ This file blah... blah.. blah.. write something here!!
 
 ## Instructions - (How to run program)
 ```Python
-  step 1: blah, blah, blah
-  step 2: etc
-  step 3: ...
+  step 1: Enter terminal/command line
+  step 2: type "python game.py" and hit enter key
+  
 ```
 
 
@@ -64,19 +64,24 @@ This file blah... blah.. blah.. write something here!!
 
 ## Annotated bibliography
 
- - [something](google.com)
- - 
- -
+“Copy in Python (Deep Copy and Shallow Copy).” Geeksforgeeks.Org, 26 July 2024, www.geeksforgeeks.org/copy-python-deep-copy-shallow-copy/. I had a problem with copying a specific data structure in my program, I tried directly making a shallow copy but it wouldn't work correctly. This source helped me remember how to make a deep copy in python
+
+“Learn to Play Hearts.” Bicyclecards.Com, bicyclecards.com/how-to-play/hearts/. Accessed 2 Dec. 2024. This source helped me understand the rules for the heart game. It provided guidance on rules, gameplay, scoring, etc.
 
 
 
 ## Attribution
 | Method/Function | Primary Author | Technique Demonstrated |
 |   :--------     |    :------:    |      ------------      |
-|    `__str__()`,  |    Kyle    | magic methods, f-strings containing expressions|
-|     `gameplay()`,  |    Kyle    | |
-| `deal()`, `table()`, `done()`, `winner()`, `score()`, `bar_graph()` | Bereket | Key function, visualizing data with pyplot| 
-|`convert_card()`|   Melat   |sequence unpacking, conditional expressions|
+|  `__str__()`    |    Kyle    | magic methods, f-strings containing expressions|
+|  `gameplay()`   |    Kyle    |                            |
+| `deal()`        |   Bereket  |                            | 
+| `table()`       |   Bereket  |                            | 
+| `winner()`      |   Bereket  | Key function               |
+| `bar_graph()`   |   Bereket  | data with pyplot           |
+| `done()`        |   Bereket  |                            | 
+| `score()`       |   Bereket  |                            |  
+|`convert_card()` |    Melat   |sequence unpacking, conditional expressions.|
 | `validate_card_choice()` |  Hamza   | keyword arguements, generator exp|
 
 
