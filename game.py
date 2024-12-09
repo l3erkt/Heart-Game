@@ -40,12 +40,22 @@ def current_player(table, round = 1):
     
     return None
 
-
-
-
 class Game:
-
+    """
+    Creates Game class
+    Attributes: __init__(),__str()__,gameplay(), convert_cards()
+    Side effects: Creates __init__(),__str()__,gameplay(), convert_cards() methods. Plays the game
+    Returns: val_converted in convert_cards
+    """
     def __init__(self,my_game):
+        """
+        Author: Kyle Won
+        Description: Method that initializes Game object
+        Args: self,my_game
+        Side effects: creates a deep copy of the my_game object, creates self.trick
+        Returns: None
+        Raises: ValueError if invalid number, raises TypeError if the number is the wrong data type
+        """
         self.my_game = my_game
         # This is the actual trick where users play their cards
         self.trick = {}
@@ -57,6 +67,13 @@ class Game:
             
     # If we want to debug I created a magic method to print Game objects
     def __str__(self):
+        """
+        Author: Kyle Won
+        Description: Allows for a informal representation of the my_game data type
+        Args: self
+        Side effects: Prints cards in a player's hand
+        Returns: ret: A string that contains a player's hand information
+        """
         ret = ""
         for name, hand in self.my_game.items():
             ret += name + "'s cards" ": "
@@ -70,8 +87,16 @@ class Game:
 
     
     def gameplay(self):
+        """
+        Author: Kyle Won
+        Description: Contains the game's logic (for the most part)
+        Args: self
+        Side effects: Will print who wins, error messages for wrong card placement, and will take input from user. Will also take 
+        also convert letter cards such as J,Q,K,A.
+        Returns: None
+        """
         self.scoreboard = {}
-        # Just some stuff to see who is first, don't really need to know how it works
+        # Finds who is first by searching each hand to see who has the 2 of clubs
         first_player = current_player(self.my_game)
         print(f"The first player is: {first_player}")
         unordered = list(self.my_game.keys())
@@ -84,7 +109,6 @@ class Game:
         print(com)
         print("\n")
         finished = False
-        # Haven't finished this yet but it will run until the game is "finished" (someone gets a certain score)
         
         while finished == False:
             
@@ -100,7 +124,6 @@ class Game:
                 while not valid_choice:  # Hamza changes: Loop to enforce valid card choice
                     suit_choice = input(f"{com[i]}, What suit would you like to play? ")
                     num_choice = input("What number of that suit would you like to play? ")
-                    """Conditions or try except blocks can be HERE to catch any situations where a player plays a heart card accedently for example """
                 
                     if num_choice.isdigit():
                         num_choice = int(num_choice)
@@ -125,6 +148,13 @@ class Game:
             highest = ["", 0]
             winner_name = ""
             def convert_cards(card):
+                """
+                Author: Kyle Won
+                Description: Helper function that converts J,Q,K,A to numbers, ranking in that order
+                Args: card: a card's number 
+                Side effects: Will convert a letter to a number then assign val_converted to it
+                Returns: val_converted: The converted value
+                """
                 if  card == "A":
                     val_converted = 14
                 elif  card == "K":
@@ -147,7 +177,7 @@ class Game:
                     highest = value
                     winner_name = key
                         
-            # my implemnentation of the scroing function            
+            #  implemnentation of the scoring            
             print(f"\n{winner_name} wins the trick stack as they placed a(n) {highest[0]} of {highest[1]}")
             scoreboard = score.score(trick_copy, winner_name)
             if self.scoreboard == {}:
