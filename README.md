@@ -12,7 +12,7 @@ For INST326 me and my group members Kyle, Melat, and Hamza decided to create the
 | Method/Function | Primary Author | Technique Demonstrated |
 |   :--------     |    :------:    |      ------------      |
 |    `__str__()`, `gameplay()`,  |    Kyle    | magic methods, f-strings containing expressions|
-| `deal()`, `table()`, `done()`, `winner()`, `score()`| Bereket | Key function, visualizing data with pyplot| 
+| `deal()`, `table()`, `done()`, `winner()`, `score()`, `bar_graph()`| Bereket | Key function, visualizing data with pyplot| 
 |`convert_card()`|   Melat   |sequence unpacking, conditional expressions|
 | `validate_card_choice()` |  Hamza   | keyword arguements, generator exp|
 
