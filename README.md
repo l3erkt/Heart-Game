@@ -73,10 +73,15 @@ This file creates a bar graph that shows the scores of each player
 ## Attribution
 | Method/Function | Primary Author | Technique Demonstrated |
 |   :--------     |    :------:    |      ------------      |
-|    `__str__()`,  |    Kyle    | magic methods, f-strings containing expressions|
-|     `gameplay()`,  |    Kyle    | |
-| `deal()`, `table()`, `done()`, `winner()`, `score()`, `bar_graph()` | Bereket | Key function, visualizing data with pyplot| 
-|`convert_card()`|   Melat   |sequence unpacking, conditional expressions|
+|  `__str__()`    |    Kyle    | magic methods, f-strings containing expressions|
+|  `gameplay()`   |    Kyle    |                            |
+| `deal()`        |   Bereket  |                            | 
+| `table()`       |   Bereket  |                            | 
+| `winner()`      |   Bereket  | Key function               |
+| `bar_graph()`   |   Bereket  | data with pyplot           |
+| `done()`        |   Bereket  |                            | 
+| `score()`       |   Bereket  |                            |  
+|`convert_card()` |    Melat   |sequence unpacking, conditional expressions.|
 | `validate_card_choice()` |  Hamza   | keyword arguements, generator exp|
 
 
