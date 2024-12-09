@@ -10,35 +10,35 @@ For INST326 me and my group members Kyle, Melat, and Hamza decided to create the
 ## Purpose of each file
 ```
 deck.py 
-This file blah... blah.. blah.. write something here!!
+This contains a dictionary that formats the card deck before it is dealt to the players.
 ```
 
 
 ```
 deal.py
-This file blah... blah.. blah.. write something here!!
+This file contains code that deals cards to players and also takes in plauer names to name each player.
 ```
 
 ```
 score.py
-This file blah... blah.. blah.. write something here!!
+This file contains functions that count a players hand and calculates their score.
 ```
 
 ```
 validation.py
-This file blah... blah.. blah.. write something here!!
+This file validates a player's choice of card, whether it means verifying that the players follows the lead suit or that they don't play a heart suit first
 ```
 
 
 ```
 game.py
-This file blah... blah.. blah.. write something here!!
+The purpose of this file to run the program because it contains most of the game logic and it starts the program.
 ```
 
 
 ```
 visual.py
-This file blah... blah.. blah.. write something here!!
+This file creates a bar graph that shows the scores of each player
 ```
 
 
