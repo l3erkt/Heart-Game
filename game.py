@@ -2,6 +2,7 @@ import deal
 import copy
 import trick
 import score
+import visual
 import validation
 
 
@@ -194,7 +195,8 @@ class Game:
             if score.done(self.scoreboard) == True:
                 finished = True
                 winner = score.winner(self.scoreboard)
-                print(f"WOW WHAT A GAME, THE WINNER IS {winner[0]} and their score was {winner[1]}.")
+                visual.bar_graph(self.scoreboard)
+                print(f"WOW WHAT A GAME, THE WINNER IS {winner[0]} and their score was {winner[1]}.")          
     
             
 
