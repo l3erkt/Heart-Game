@@ -46,9 +46,9 @@ This file creates a bar graph that shows the scores of each player
 
 ## Instructions - (How to run program)
 ```Python
-  step 1: blah, blah, blah
-  step 2: etc
-  step 3: ...
+  step 1: Enter terminal/command line
+  step 2: type "python game.py" and hit enter key
+  
 ```
 
 
