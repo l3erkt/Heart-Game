@@ -8,35 +8,35 @@ For INST326 me and my group members Kyle, Melat, and Hamza decided to create the
 
 
 ## Purpose of each file
-```Python
+```
 deck.py 
 This file blah... blah.. blah.. write something here!!
 ```
 
 
-```Python
+```
 deal.py
 This file blah... blah.. blah.. write something here!!
 ```
 
-```Python
+```
 score.py
 This file blah... blah.. blah.. write something here!!
 ```
 
-```Python
+```
 validation.py
 This file blah... blah.. blah.. write something here!!
 ```
 
 
-```Python
+```
 game.py
 This file blah... blah.. blah.. write something here!!
 ```
 
 
-```Python
+```
 visual.py
 This file blah... blah.. blah.. write something here!!
 ```
