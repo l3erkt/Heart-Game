@@ -8,42 +8,36 @@ For INST326 me and my group members Kyle, Melat, and Hamza decided to create the
 
 
 ## Purpose of each file
-```
-                                                deck.py 
-
+```Python
+deck.py 
 This file blah... blah.. blah.. write something here!!
 ```
 
 
-```
-                                                deal.py
-
+```Python
+deal.py
 This file blah... blah.. blah.. write something here!!
 ```
 
-```
-                                                score.py
-
+```Python
+score.py
 This file blah... blah.. blah.. write something here!!
 ```
 
-```
-                                                validation.py
-
-This file blah... blah.. blah.. write something here!!
-```
-
-
-```
-                                                game.py
-
+```Python
+validation.py
 This file blah... blah.. blah.. write something here!!
 ```
 
 
+```Python
+game.py
+This file blah... blah.. blah.. write something here!!
 ```
-                                                visual.py
 
+
+```Python
+visual.py
 This file blah... blah.. blah.. write something here!!
 ```
 
@@ -80,7 +74,7 @@ This file blah... blah.. blah.. write something here!!
 | Method/Function | Primary Author | Technique Demonstrated |
 |   :--------     |    :------:    |      ------------      |
 |    `__str__()`, `gameplay()`,  |    Kyle    | magic methods, f-strings containing expressions|
-| `deal()`, `table()`, `done()`, `winner()`, `score()`| Bereket | Key function, visualizing data with pyplot| 
+| `deal()`, `table()`, `done()`, `winner()`, `score()`, `bar_graph()` | Bereket | Key function, visualizing data with pyplot| 
 |`convert_card()`|   Melat   |sequence unpacking, conditional expressions|
 | `validate_card_choice()` |  Hamza   | keyword arguements, generator exp|
 
