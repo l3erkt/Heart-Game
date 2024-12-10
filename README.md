@@ -80,13 +80,13 @@ The purpose of this file is to announce the sequence of turns in the game. It de
 |   :--------     |    :------:    |      ------------      |
 |  `__str__()`    |    Kyle    | magic methods, f-strings containing expressions|
 |  `gameplay()`   |    Kyle    |                            |
-| `deal()`        |   Bereket  |                            | 
+| `deal()`        |   Melat    |                           | 
 | `table()`       |   Bereket  |                            | 
 | `winner()`      |   Bereket  | Key function               |
 | `bar_graph()`   |   Bereket  | data with pyplot           |
 | `done()`        |   Bereket  |                            | 
 | `score()`       |   Bereket  |                            |  
-|`convert_card()` |    Melat   |sequence unpacking, conditional expressions.|
+|`current_player()` |    Melat   |sequence unpacking, conditional expressions.|
 | `validate_card_choice()` |  Hamza   | keyword arguements, generator exp|
 | `announc.py()`    |  Hamza    | comprehensions              |
 
