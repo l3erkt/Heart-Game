@@ -62,7 +62,7 @@ The purpose of this file is to announce the sequence of turns in the game. It de
 ```Python
   step 1: The program will first prompt you to enter the names of 4 players
   step 2: It will then deal cards and the person who has the 2 of clubs will go first
-  step 3: The program will print the hand of the player with each card separated by a "|". Each player will first tell the program the suit they have to play, it must match the leading suit, and then it will ak for a number.
+  step 3: The program will print the hand of the player with each card separated by a "|". Each player will first tell the program the suit they have to play, it must match the leading suit, and then it will ak for a number. If playing a letter enter a capital letter.
 ```
 
 
